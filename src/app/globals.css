@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f0703;
+  --foreground: #ffffff;
+  --primary: #d4533a;
+  --accent: #0f0703;
 }
 
-@theme inline {
+@theme {
+  /* Custom Colors - Primary Scale (Red-Orange) */
+  --color-primary-50: #fef7f5;
+  --color-primary-100: #fdeee8;
+  --color-primary-200: #fad5c6;
+  --color-primary-300: #f6bca4;
+  --color-primary-400: #ee8a60;
+  --color-primary-500: var(--primary); /* Base color #d4533a */
+  --color-primary-600: #b8452f;
+  --color-primary-700: #9c3724;
+  --color-primary-800: #7f2d1c;
+  --color-primary-900: #682417;
+
+  /* Custom Colors - Accent Scale (Dark Brown) */
+  --color-accent-50: #faf7f5;
+  --color-accent-100: #f5efeb;
+  --color-accent-200: #e6d3c7;
+  --color-accent-300: #d7b7a3;
+  --color-accent-400: #b8875b;
+  --color-accent-500: #8b5a2b;
+  --color-accent-600: #6d3f1a;
+  --color-accent-700: #4f2d13;
+  --color-accent-800: var(--accent); /* Base color #1b0d06 */
+  --color-accent-900: #0f0703;
+
+  /* Semantic Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+
+  /* Typography */
+  --font-cabinet-grotesk: var(--font-cabinet-grotesk);
+  --font-amulya: var(--font-amulya);
+
+  /* Ensure rounded corners by default */
+  --radius-DEFAULT: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Custom button styles with glow effect */
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition-all duration-300;
+  box-shadow: 0 0 20px rgba(212, 83, 58, 0.3);
+}
+
+.btn-primary:hover {
+  @apply scale-105;
+  box-shadow: 0 0 30px rgba(212, 83, 58, 0.5);
+}
+
+.btn-primary:active {
+  @apply scale-95;
+}
+
+/* Apply rounded corners to common elements */
+input,
+textarea,
+select {
+  @apply rounded-md;
+}
+
+.card {
+  @apply rounded-lg;
+}
+
+.glow-primary-lg {
+  box-shadow: 0 0 40px #faecd9;
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(27, 13, 6, 0.3);
 }
